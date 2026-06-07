@@ -20,7 +20,7 @@ create table ops_log_detail
     update_by   varchar(64) default '' comment '更新者',
     update_time datetime    default null comment '更新时间',
     primary key (log_id),
-    -- 联合唯一索引：src_id + src_type
+    -- 联合唯一索引：src_id & src_type
     unique key uk_src_id_src_type (src_id, src_type)
 ) engine = innodb comment = '日志详情表';
 
@@ -61,7 +61,7 @@ create table ops_log_regex
     update_by   varchar(64) default '' comment '更新者',
     update_time datetime    default null comment '更新时间',
     primary key (regex_id),
-    -- 联合唯一索引：application + name
+    -- 联合唯一索引：application & name
     unique key uk_application_name (application, name)
 ) engine = innodb comment = '日志正则表';
 
